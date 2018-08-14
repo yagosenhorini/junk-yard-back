@@ -1,0 +1,16 @@
+{
+  "name": "node-api-rest",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "Yago Senhorini",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.8",
+    "nodemon": "^1.18.3"
+  }
+}
