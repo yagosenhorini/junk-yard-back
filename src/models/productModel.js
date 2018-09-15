@@ -10,9 +10,9 @@ const productModel = Schema({
         type: Number,
         required: 'Peso obrigatório'
     },
-    quantity: {
+    price: {
         type: Number,
-        required: false
+        required: 'Valor do quilo obrigatório'
     },
 })
 

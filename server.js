@@ -11,7 +11,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb+srv://admin:minu182@mongo-junkyard-gon2z.gcp.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+app.use(bodyParser.json({extended: false}))
 app.use(cors())
 
 routes(app)
