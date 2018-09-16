@@ -5,7 +5,9 @@
   "author": "Yago Senhorini",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./server.js --exec babel-node --presets babel-preset-env"
+    "start": "nodemon ./src/bin/server.js --exec babel-node --presets babel-preset-env",
+    "build": "./node_modules/.bin/babel src -d dist",
+    "prod": "node ./dist/bin/server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -18,6 +20,9 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "nodemon": "^1.18.3"
+    "nodemon": "^1.18.3",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5"
   }
 }
