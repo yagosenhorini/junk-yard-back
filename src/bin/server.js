@@ -2,13 +2,15 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import routes from '../routes/productRoutes';
-import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config({silent:true});
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://admin:minu182@mongo-junkyard-gon2z.gcp.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
+mongoose.connect(process.env.MONGO_DB, {useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json({extended: false}))
@@ -29,6 +31,6 @@ app.use(allowCrossDomain)
 
 routes(app)
 
-app.listen(PORT, ()=>{
+app.listen((PORT), ()=>{
     console.log(`Express running at port ${PORT}`);
 })
