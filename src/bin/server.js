@@ -5,28 +5,36 @@ import dotenv from 'dotenv';
 
 import routes from '../routes/productRoutes';
 
-dotenv.config({silent:true});
+dotenv.config({
+  silent: true
+});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_DB, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json({ extended: false }));
-const allowCrossDomain = ((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+app.use(bodyParser.json({
+  extended: false
+}));
+const allowCrossDomain = ((error, req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
-    // intercept OPTIONS method
-    if ('OPTIONS' == req.method) {
-      res.send(200);
-    }
-    else {
-      next();
-    }
+  // intercept OPTIONS method
+  if ('OPTIONS' == req.method) {
+    res.send(200);
+  } else {
+    next();
+  }
 });
 
 app.use(allowCrossDomain);

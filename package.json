@@ -1,6 +1,6 @@
 {
-  "name": "node-api-rest",
-  "version": "1.0.0",
+  "name": "ferrovelho-api",
+  "version": "1.1.0",
   "main": "app.js",
   "author": "Yago Senhorini",
   "license": "MIT",
@@ -12,19 +12,17 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
-    "dotenv": "^6.1.0",
     "express": "^4.16.3",
     "minimist": "^1.2.0",
-    "mongoose": "^5.2.8",
-    "swagger-node-express": "^2.1.3"
+    "mongoose": "^5.2.8"
   },
   "devDependencies": {
+    "dotenv": "^6.1.0",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
-    "http-errors": "^1.8.0",
     "nodemon": "^1.18.3"
   }
 }
